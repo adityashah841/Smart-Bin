@@ -1,0 +1,1 @@
+export default Label = ({ children }) => <Text style={styles.label}>{children}</Text>;
