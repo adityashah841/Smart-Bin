@@ -18,11 +18,11 @@ export default function Calendar() {
         <View style={{ marginVertical: Margin.small }}>
             <CalendarStrip
                 scrollable={true}
-                style={{ height: vh(10), width: vw(90) }}
-                calendarHeaderStyle={{ color: "white" }}
+                style={{ height: vh(10), width: vw(90), color: "#000" }}
+                calendarHeaderStyle={{ color: "black" }}
                 calendarHeaderPosition="below"
-                dateNameStyle={{ fontFamily: Fonts.popSemi, fontSize: Fonts.h4 }}
-                dateNumberStyle={{ fontFamily: Fonts.popBold, fontSize: Fonts.h3 }}
+                dateNameStyle={{ fontFamily: Fonts.popSemi, fontSize: Fonts.h4, color: "#000" }}
+                dateNumberStyle={{ fontFamily: Fonts.popBold, fontSize: Fonts.h3, color: "#000" }}
                 calendarHeaderContainerStyle={{ height: 0 }}
                 // customDatesStyles={customDatesStylesFunc}
                 // maxDate={endDate}

@@ -19,6 +19,20 @@ export default function LearnMoreScreen() {
       style={{ width: "100%", height: "100%" }}
     >
       <ScrollView style={styles.container}>
+        <Video
+          source={{
+            uri:
+              "http://s3.amazonaws.com/digitaltrends-uploads-prod/wp-content/uploads/2018/07/oscar.mp4?_=4"
+          }}
+          rate={1.0}
+          volume={1.0}
+          // isMuted={false}
+          resizeMode="cover"
+          controls={true}
+          // useNativeControls
+          style={{ width: "100%", height: 200, marginTop: 20 }}
+        />
+
         {/* <View>
           <Text
             style={{
@@ -42,7 +56,7 @@ export default function LearnMoreScreen() {
               paddingBottom: 10,
               fontFamily:
                 Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
-              // color: "#6E6E6E"
+              , color: "#000"
             }}
           >
             Food waste
@@ -53,7 +67,7 @@ export default function LearnMoreScreen() {
               fontSize: 14,
               fontFamily:
                 Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
-              // color: "#6E6E6E"
+              , color: "#000"
             }}
           >
             Divide into smaller pieces. Food scraps, for example:
@@ -70,7 +84,7 @@ export default function LearnMoreScreen() {
                   fontSize: 14,
                   fontFamily:
                     Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
-                  // color: "#6E6E6E"
+                  , color: "#000"
                 }}
               >
                 {item.key}
@@ -83,7 +97,7 @@ export default function LearnMoreScreen() {
               fontSize: 14,
               fontFamily:
                 Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
-              // color: "#6E6E6E"
+              , color: "#000"
             }}
           >
             For more information, read instructions from yours waste mill
@@ -159,7 +173,7 @@ export default function LearnMoreScreen() {
               paddingBottom: 10,
               fontFamily:
                 Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
-              // color: "#6E6E6E"
+              , color: "#000"
             }}
           >
             Plastic packaging
@@ -170,7 +184,7 @@ export default function LearnMoreScreen() {
               fontSize: 14,
               fontFamily:
                 Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
-              // color: "#6E6E6E"
+              , color: "#000"
             }}
           >
             Pack in bag, max 25 liters
@@ -190,7 +204,7 @@ export default function LearnMoreScreen() {
                   fontSize: 14,
                   fontFamily:
                     Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
-                  // color: "#6E6E6E"
+                  , color: "#000"
                 }}
               >
                 {item.key}
@@ -271,19 +285,6 @@ export default function LearnMoreScreen() {
           >
             Inspiration - the future of sorting
           </Text>
-          <Video
-            source={{
-              uri:
-                "http://s3.amazonaws.com/digitaltrends-uploads-prod/wp-content/uploads/2018/07/oscar.mp4?_=4"
-            }}
-            rate={1.0}
-            volume={1.0}
-            // isMuted={false}
-            resizeMode="cover"
-            controls={true}
-            // useNativeControls
-            style={{ width: "100%", height: 200 }}
-          />
         </View>
       </ScrollView>
     </ImageBackground>

@@ -41,7 +41,7 @@ export default function AboutScreen() {
               paddingBottom: 10,
               fontFamily:
                 Platform.OS === "android" ? "Roboto" : "Helvetica Neue",
-              // color: "#6E6E6E"
+              color: "#000"
             }}
           >
             KTH meets Stockholm Royal Seaport
@@ -49,7 +49,7 @@ export default function AboutScreen() {
           <Text
             style={{
               fontSize: 14,
-              // color: "#6E6E6E",
+              color: "#000",
               fontFamily:
                 Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
             }}
@@ -72,7 +72,7 @@ AboutScreen.navigationOptions = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   aboutContainer: {
     backgroundColor: "#fff",
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20,
     padding: 20,
-    opacity: 0.9,
+    // opacity: 0.9,
     marginTop: 30,
     borderRadius: 10
   }

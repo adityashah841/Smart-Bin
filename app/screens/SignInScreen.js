@@ -66,7 +66,7 @@ export default function SignInScreen(props) {
                 Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
             }}
           >
-            STOCKHOLM ROYAL SEAPORT
+            {"Sign in to your account"}
           </Text>
         </View>
         <View
@@ -79,8 +79,8 @@ export default function SignInScreen(props) {
             alignItems: "flex-start",
             backgroundColor: "white",
             width: 300,
-            height: 30,
-            borderRadius: 10
+            height: 40,
+            borderRadius: 10, color: "black"
           }}
         >
           <TextInput
@@ -88,6 +88,7 @@ export default function SignInScreen(props) {
             keyboardType="number-pad"
             width={300}
             underlineColorAndroid="transparent"
+            style={styles.textBlack}
           />
         </View>
         <View
@@ -99,7 +100,7 @@ export default function SignInScreen(props) {
             alignItems: "flex-start",
             backgroundColor: "white",
             width: 300,
-            height: 30,
+            height: 40,
             borderRadius: 10
           }}
         >
@@ -109,6 +110,7 @@ export default function SignInScreen(props) {
             secureTextEntry={true}
             width={300}
             underlineColorAndroid="transparent"
+            style={styles.textBlack}
           />
         </View>
 
@@ -143,11 +145,11 @@ export default function SignInScreen(props) {
               backgroundColor: "#B8D2B9"
             }}
             textStyle={{ color: "white", fontWeight: "normal" }}
-            checkedColor="white"
+            checkedColor="black"
           />
         </View>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
-          <Text style={{ marginTop: 50, textAlign: "center", color: "white" }}>
+          <Text style={{ marginTop: 50, textAlign: "center", color: "black" }}>
             Forgot password?
           </Text>
         </View>
@@ -187,7 +189,7 @@ const styles = StyleSheet.create({
   },
   developmentModeText: {
     marginBottom: 20,
-    color: "rgba(0,0,0,0.4)",
+    color: "#000",
     fontSize: 14,
     lineHeight: 19,
     textAlign: "center"
@@ -206,11 +208,14 @@ const styles = StyleSheet.create({
   },
   helpLinkText: {
     fontSize: 14,
-    color: "#2e78b7"
+    color: "#000"
   },
   incrementButtonImage: {
     marginTop: 50,
     width: 150,
     height: 150
+  },
+  textBlack: {
+    color: "black"
   }
 });

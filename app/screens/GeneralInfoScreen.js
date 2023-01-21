@@ -54,7 +54,7 @@ export default function GeneralInfoScreen() {
         <View style={styles.throwThrashContainer}>
           <Text
             style={{
-              // color: "#6E6E6E",
+              color: "#000",
               fontSize: 20,
               fontFamily:
                 Platform.OS === "android" ? "Roboto" : "Helvetica Neue",
@@ -63,7 +63,7 @@ export default function GeneralInfoScreen() {
               fontWeight: "bold"
             }}
           >
-            Thrown trash in SRS - 2019
+            Thrown trash in SRS Housing Society - 2022
           </Text>
 
           <Text
@@ -72,11 +72,11 @@ export default function GeneralInfoScreen() {
               paddingBottom: 5,
               paddingLeft: 20,
               fontFamily:
-                Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
-              // color: "#6E6E6E"
+                Platform.OS === "android" ? "Roboto" : "Helvetica Neue",
+              color: "#000"
             }}
           >
-            Total amount of plastic, paper and rest trash thrown i SRS.
+            Total amount of plastic, paper and rest trash thrown in SRS Housing Society.
           </Text>
 
           {Platform.OS === "android" ? (
@@ -128,8 +128,8 @@ export default function GeneralInfoScreen() {
                 style={{ title: { fontSize: 20 } }}
                 data={[
                   { name: "Plastic", symbol: { fill: "#009245" } },
-                  { name: "Paper", symbol: { fill: "#33CC66" } },
-                  { name: "Rest", symbol: { fill: "#66FF66" } },
+                  { name: "Compostable", symbol: { fill: "#33CC66" } },
+                  { name: "Recyclable", symbol: { fill: "#66FF66" } },
                   { name: "Total", symbol: { fill: "black" } }
                 ]}
               />
@@ -206,9 +206,9 @@ export default function GeneralInfoScreen() {
         <View style={styles.throwThrashContainerGreen}>
           <Text
             style={{
-              color: "#6E6E6E",
+              color: "#000",
               fontSize: 20,
-              color: "white",
+              color: "black",
               fontFamily:
                 Platform.OS === "android" ? "Roboto" : "Helvetica Neue",
               paddingBottom: 10,
@@ -216,18 +216,18 @@ export default function GeneralInfoScreen() {
               fontWeight: "bold"
             }}
           >
-            Trash distribution in SRS - Dec 2019
+            Trash distribution in SRS Housing Society - Dec 2022
           </Text>
 
           <VictoryPie
             domainPadding={17}
             width={350}
             height={300}
-            colorScale={["#009245", "#33CC66", "#66FF66"]}
+            colorScale={["#ff0000", "#0000ff", "#00ff00"]}
             data={[
-              { x: "Plastic", y: 1 },
-              { x: "Paper", y: 1.5 },
-              { x: "Rest", y: 17 }
+              { x: "Plastic", y: 5 },
+              { x: "Compostable", y: 1.5 },
+              { x: "Recyclable", y: 14 }
             ]}
           />
         </View>

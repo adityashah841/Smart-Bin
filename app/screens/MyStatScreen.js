@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ConfettiCannon from "react-native-confetti-cannon";
-
 import SignInScreen from "./SignInScreen";
-
+const moment = require('moment');
+const today = moment();
 import { v4 as uuidv4 } from 'uuid';
 import {
   Image,
@@ -34,6 +34,7 @@ export default function MyStatScreen(props) {
   const [countPaper, setPaper] = useState(0.3);
   const [countRest, setRest] = useState(0.9);
   const [ratio, setRatio] = useState(null);
+  const [date, setDate] = useState("2023-01-21");
 
   [isLoggedOut, setIsLoggedOut] = useState(false);
   [isAchieved, setIsAchieved] = useState(false);
@@ -240,10 +241,13 @@ export default function MyStatScreen(props) {
     }
   }, [ratio]);
 
+
+
+
   const MyStatContent = (
     <ImageBackground
-      source={require("../assets/images/background-green.png")}
-      style={{ width: "100%", height: "100%" }}
+      // source={require("../assets/images/background-green.png")}
+      style={{ width: "100%", height: "100%", color: '#333' }}
     >
       <View style={styles.container}>
         {isAchieved && <ConfettiCannon count={50} origin={{ x: -10, y: 0 }} />}
@@ -251,7 +255,8 @@ export default function MyStatScreen(props) {
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
         >
-          {/* <View>
+          <View>
+            {/* <View>
             <Text
               style={{
                 color: "white",
@@ -267,100 +272,26 @@ export default function MyStatScreen(props) {
             </Text>
           </View> */}
 
-          <Calendar />
+            <Calendar />
 
-          <View
-            style={{
-              backgroundColor:
-                status === "ok"
-                  ? "#009245"
-                  : status === "disturbed"
-                    ? "yellow"
-                    : "red",
-              opacity: 0.9,
-              // paddingTop: 20,
-              borderRadius: 10,
-              padding: 20,
-              marginTop: 5,
-              marginLeft: 20,
-              marginRight: 20
-              // marginBottom: 5
-            }}
-          >
-            <View style={styles.statusContainer}>
-              <Text
-                style={{
-                  color: status === "disturbed" ? "black" : "white",
-                  fontSize: 24
-                }}
-              >
-                Station status
-              </Text>
 
-              {/*  <Image
-                style={{ width: 30, height: 30 }}
-                source={require("../assets/images/recycled-bin.png")}
-              /> */}
-              <Text
-                style={{
-                  color: status === "disturbed" ? "black" : "white",
-                  fontSize: 24
-                }}
-              >
-                : {status}
-              </Text>
-            </View>
-            <View style={styles.statusContainer}>
-              {statuses.map(statusObject => (
-                <View style={styles.buttonContainer} key={statusObject.key}>
-                  <View
-                    style={{
-                      justifyContent: "center",
-                      alignItems: "center"
-                    }}
-                  >
-                    <TouchableHighlight
-                      style={{
-                        borderRadius: 10,
-                        borderWidth: 0.5,
-
-                        // backgroundColor: "#B8D2B9",
-                        backgroundColor: statusObject.color,
-                        flex: 1,
-                        padding: 15,
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                      onPress={() => updateStatus(statusObject.status)}
-                    >
-                      <Text
-                        style={{
-                          fontSize: 15
-                        }}
-                      >
-                        {statusObject.status}
-                      </Text>
-                    </TouchableHighlight>
-                  </View>
-                </View>
-              ))}
-            </View>
           </View>
 
           <View style={styles.throwThrashContainer}>
             <Text
               style={{
-                //color: "#6E6E6E",
+                color: "#000",
                 fontSize: 20,
+                width: "90%",
                 fontFamily:
                   Platform.OS === "android" ? "Roboto" : "Helvetica Neue",
                 paddingBottom: 10,
                 paddingLeft: 20,
-                fontWeight: "bold"
-                //color: "#6E6E6E"
+                fontWeight: "bold",
+
               }}
             >
-              My thrown trash - December
+              My thrown trash on {today.format("dddd, Do MMMM")}
             </Text>
 
             <Text
@@ -369,6 +300,7 @@ export default function MyStatScreen(props) {
                 // paddingBottom: 0,
                 paddingLeft: 20,
                 paddingRight: 20,
+                color: "#000",
                 fontFamily:
                   Platform.OS === "android" ? "Roboto" : "Helvetica Neue"
                 //color: "#6E6E6E"
@@ -582,8 +514,8 @@ export default function MyStatScreen(props) {
                   Platform.OS === "android" ? "Roboto" : "Helvetica Neue",
                 paddingBottom: 10,
                 paddingLeft: 20,
-                fontWeight: "bold"
-                //color: "#6E6E6E"
+                fontWeight: "bold",
+                color: "#000"
               }}
             >
               My thrown trash distribution
@@ -596,8 +528,8 @@ export default function MyStatScreen(props) {
                 colorScale={["#009245", "#33CC66", "#66FF66"]}
                 data={[
                   { x: "Plastic", y: countPlastic },
-                  { x: "Paper", y: countPaper },
-                  { x: "Rest", y: countRest }
+                  { x: "Compostable", y: countPaper },
+                  { x: "Recyclable", y: countRest }
                 ]}
               />
             </View>
@@ -614,7 +546,8 @@ export default function MyStatScreen(props) {
                   paddingBottom: 10,
                   paddingLeft: 20,
                   fontWeight: "bold"
-                  //color: "#6E6E6E"
+                  ,
+                  color: "#000"
                 }}
               >
                 My level
@@ -664,7 +597,7 @@ export default function MyStatScreen(props) {
                 paddingBottom: 10,
                 paddingLeft: 20,
                 fontWeight: "bold"
-                //color: "#6E6E6E"
+                , color: "#000"
               }}
             >
               My badges
@@ -769,8 +702,8 @@ export default function MyStatScreen(props) {
             </TouchableHighlight>
           </View>
         </ScrollView>
-      </View>
-    </ImageBackground>
+      </View >
+    </ImageBackground >
   );
 
   return isLoggedOut ? <SignInScreen /> : MyStatContent;

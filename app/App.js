@@ -11,12 +11,12 @@ export default function App(props) {
       <AppNavigator />
     </View>
   );
-
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    color: 'black',
   },
 });

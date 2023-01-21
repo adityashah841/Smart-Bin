@@ -154,18 +154,19 @@ const Tabs = createBottomTabNavigator();
 
 
 function MainTabNavigator() {
-  return (<Tabs.Navigator screenOptions={{ tabBarLabelStyle: { fontSize: 14 } }}>
+  return (<Tabs.Navigator screenOptions={{ tabBarLabelStyle: { fontSize: 14 }, headerShown: false }} >
     <Tabs.Screen name="My stats" options={{
       tabBarIcon: ({ focused }) => (
         <TabBarIcon
           focused={focused}
+
           name={
             Platform.OS === "ios" ? `ios-person${focused ? "" : ""}` : "md-person"
           }
         />
       )
     }} component={SignInScreen} />
-    <Tabs.Screen name="Neighbours" options={{
+    <Tabs.Screen name="Community" options={{
       tabBarIcon: ({ focused }) => (
         <TabBarIcon
           focused={focused}
