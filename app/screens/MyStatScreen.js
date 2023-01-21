@@ -1,8 +1,9 @@
-import * as WebBrowser from "expo-web-browser";
 import React, { useState, useEffect } from "react";
 import ConfettiCannon from "react-native-confetti-cannon";
+
 import SignInScreen from "./SignInScreen";
 
+import { v4 as uuidv4 } from 'uuid';
 import {
   Image,
   Platform,
@@ -26,6 +27,7 @@ import {
   VictoryAxis
 } from "victory-native";
 import { isFor } from "@babel/types";
+import Calendar from '../src/components/Calendar';
 
 export default function MyStatScreen(props) {
   const [countPlastic, setPlastic] = useState(0.4);
@@ -38,9 +40,9 @@ export default function MyStatScreen(props) {
   [level, setLevel] = useState("bronze");
 
   const statuses = [
-    { status: "ok", color: "#33CC66" },
-    { status: "disturbed", color: "yellow" },
-    { status: "down", color: "red" }
+    { status: "ok", color: "#33CC66", key: 1 },
+    { status: "disturbed", color: "yellow", key: 2 },
+    { status: "down", color: "red", key: 3 }
   ];
   const [status, setStatus] = useState(statuses[0].status);
 
@@ -249,7 +251,7 @@ export default function MyStatScreen(props) {
           style={styles.container}
           contentContainerStyle={styles.contentContainer}
         >
-          <View>
+          {/* <View>
             <Text
               style={{
                 color: "white",
@@ -263,7 +265,9 @@ export default function MyStatScreen(props) {
             >
               Welcome User
             </Text>
-          </View>
+          </View> */}
+
+          <Calendar />
 
           <View
             style={{
@@ -271,8 +275,8 @@ export default function MyStatScreen(props) {
                 status === "ok"
                   ? "#009245"
                   : status === "disturbed"
-                  ? "yellow"
-                  : "red",
+                    ? "yellow"
+                    : "red",
               opacity: 0.9,
               // paddingTop: 20,
               borderRadius: 10,
@@ -287,7 +291,7 @@ export default function MyStatScreen(props) {
               <Text
                 style={{
                   color: status === "disturbed" ? "black" : "white",
-                  fontSize: "24px"
+                  fontSize: 24
                 }}
               >
                 Station status
@@ -300,7 +304,7 @@ export default function MyStatScreen(props) {
               <Text
                 style={{
                   color: status === "disturbed" ? "black" : "white",
-                  fontSize: "24px"
+                  fontSize: 24
                 }}
               >
                 : {status}
@@ -308,7 +312,7 @@ export default function MyStatScreen(props) {
             </View>
             <View style={styles.statusContainer}>
               {statuses.map(statusObject => (
-                <View style={styles.buttonContainer}>
+                <View style={styles.buttonContainer} key={statusObject.key}>
                   <View
                     style={{
                       justifyContent: "center",
@@ -636,12 +640,12 @@ export default function MyStatScreen(props) {
                       level === "bronze"
                         ? "#A77044"
                         : level === "silver"
-                        ? "#A7A7AD"
-                        : level === "gold"
-                        ? "#D6AF36"
-                        : level === "platinum"
-                        ? "#cbc7c5"
-                        : "green"
+                          ? "#A7A7AD"
+                          : level === "gold"
+                            ? "#D6AF36"
+                            : level === "platinum"
+                              ? "#cbc7c5"
+                              : "green"
                   }}
                 >
                   <Text>{level} </Text>
@@ -669,7 +673,7 @@ export default function MyStatScreen(props) {
               {Object.keys(achievements).map(
                 achievementKey =>
                   achievements[achievementKey].isAchieved && (
-                    <View style={styles.buttonContainer}>
+                    <View style={styles.buttonContainer} key={achievements[achievementKey].key}>
                       <View
                         style={{
                           justifyContent: "center",
@@ -770,23 +774,13 @@ export default function MyStatScreen(props) {
   );
 
   return isLoggedOut ? <SignInScreen /> : MyStatContent;
+  // return MyStatContent;
 }
 
 SignInScreen.navigationOptions = {
   header: null
 };
 
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-    "https://docs.expo.io/versions/latest/workflow/development-mode/"
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-    "https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes"
-  );
-}
 
 const styles = StyleSheet.create({
   container: {

@@ -18,7 +18,7 @@ export default function AboutScreen() {
       style={{ width: "100%", height: "100%", opacity: 0.5 }}
     >
       <ScrollView style={styles.container}>
-        <View>
+        {/* <View>
           <Text
             style={{
               color: "white",
@@ -32,7 +32,7 @@ export default function AboutScreen() {
           >
             {"About us"}
           </Text>
-        </View>
+        </View> */}
 
         <View style={styles.aboutContainer}>
           <Text

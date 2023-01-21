@@ -9,9 +9,8 @@ import {
   FlatList,
   Platform
 } from "react-native";
-import { ExpoLinksView } from "@expo/samples";
 
-import { Video } from "expo-av";
+import Video from "react-native-video";
 
 export default function LearnMoreScreen() {
   return (
@@ -20,7 +19,7 @@ export default function LearnMoreScreen() {
       style={{ width: "100%", height: "100%" }}
     >
       <ScrollView style={styles.container}>
-        <View>
+        {/* <View>
           <Text
             style={{
               color: "white",
@@ -34,7 +33,7 @@ export default function LearnMoreScreen() {
           >
             {"Learn more"}
           </Text>
-        </View>
+        </View> */}
 
         <View style={styles.aboutContainer}>
           <Text
@@ -279,9 +278,10 @@ export default function LearnMoreScreen() {
             }}
             rate={1.0}
             volume={1.0}
-            isMuted={false}
+            // isMuted={false}
             resizeMode="cover"
-            useNativeControls
+            controls={true}
+            // useNativeControls
             style={{ width: "100%", height: 200 }}
           />
         </View>
@@ -290,14 +290,12 @@ export default function LearnMoreScreen() {
   );
 }
 
-LearnMoreScreen.navigationOptions = {
-  header: null
-};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
     /* backgroundColor: "#fff" */
+
   },
   aboutContainer: {
     backgroundColor: "#fff",

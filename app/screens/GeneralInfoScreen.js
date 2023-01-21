@@ -35,7 +35,7 @@ export default function GeneralInfoScreen() {
          * Go ahead and delete ExpoLinksView and replace it with your content;
          * we just wanted to provide you with some helpful links.
          */}
-        <View>
+        {/* <View>
           <Text
             style={{
               color: "white",
@@ -49,7 +49,7 @@ export default function GeneralInfoScreen() {
           >
             General information
           </Text>
-        </View>
+        </View> */}
 
         <View style={styles.throwThrashContainer}>
           <Text
@@ -206,7 +206,7 @@ export default function GeneralInfoScreen() {
         <View style={styles.throwThrashContainerGreen}>
           <Text
             style={{
-              //color: "#6E6E6E",
+              color: "#6E6E6E",
               fontSize: 20,
               color: "white",
               fontFamily:
