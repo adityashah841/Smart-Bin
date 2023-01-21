@@ -11,7 +11,7 @@ Servo myservo;  // create servo object to control a servo
 SerialData serialData(1,1); //(numOfValsRec,digitsPerValRec)
 int output[1];
 int pos = 0;    // variable to store the servo position
-int flag = 0; //flag to stop rotation of funnel after classification
+//int flag = 1; //flag to stop rotation of funnel after classification
 
 void setup() {
   myservo.attach(9);  // attaches the servo on pin 9 to the servo object
@@ -42,13 +42,24 @@ void loop() {
   digitalWrite(13,output[0]);  
 
   if(distance<10){
-    if(output[0]==1 || output[0]==2 || output[0]==3 ){
-      myservo.write(0);
-      delay(570*(output[0]-1));
+    //if(flag == 1){
+      if(output[0]==1 || output[0]==2 || output[0]==3){
+        myservo.write(0);
+        delay(676*output[0]);
+        myservo.write(90);
+        delay(3000);
+        myservo.write(180);
+        delay(676*output[0]);
+        myservo.write(90);
+        delay(1000);
+        Serial.println(String(output[0]));
+        Serial.flush();
+        //flag = 0;
+        }
+    //  }
+    else{
       myservo.write(90);
-      delay(3000);
-      myservo.write(180);
-      delay(570*(output[0]-1));
+      delay(500);  
     }
   }
 
@@ -67,10 +78,7 @@ void loop() {
     delay(570*(output[1]-1));     //rotate CCW back to original
     flag = 0;
   }
-  else{
-    myservo.write(90);
-    delay(500);  
-  }
+ 
   */
   return(0); 
 }
