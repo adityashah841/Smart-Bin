@@ -1,4 +1,0 @@
-0 nothing
-1 compostable
-2 Recyclable
-3 plastics
