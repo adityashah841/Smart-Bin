@@ -51,13 +51,15 @@ def func():
 if __name__=="__main__":
     func()
 ```
+<td><img src="https://github.com/adityashah841/Smart-Bin/assets/80106093/30b3135e-3576-4632-812c-4ae195d42c88" width="350" alt="Image 1" align='left'></td>
+
 
 ## 2. Arduino
 
 ---
 
-We have implimented a touchless mechanism that uses an UltraSonic Sensor to calculate the distance and check wether user is approaching with garbage or not.
-After which, the Arduino receives the classification by `SerialData` and performs servo movements accordingly. The servo rotates the funnel to allign the hollow section , above that specific category, waits for user to throw the garbage, and then rotates back to original position.
+We have implimented a touchless mechanism that uses an UltraSonic Sensor to calculate the distance and check wether user is approaching with garbage or not. On breaking the proximity barrier set, the camera captures an image of the garbage and saves it for further classification. This image is then pre-processed and passed through the deep learning model to generate a classification for the type of waste.
+This classificatiuon is then received by Arduino through `SerialData` and performs servo movements accordingly. The servo rotates the funnel to allign the hollow section, above that specific category, waits for user to throw the garbage, and then rotates back to original position. The processing of the image captured is done remotely to reduce the requirements of the micro-controller on each smart-bin. Similarly, we intend to pass the classification data to the Arduino using a wireless technology in the near future to make the product more user friendly.
 
 ```ino
 
