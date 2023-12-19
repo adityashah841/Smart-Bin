@@ -1,6 +1,9 @@
 # Waste Segregation IoT System
 
 _[Video Implementation](https://drive.google.com/file/d/1GYfXPkyOsKzibvq_-mAHJ4DsV7b_InyA/view?usp=sharing)_
+
+<td><img src="https://github.com/adityashah841/Hackanova_Sleep-Deprived/assets/80106093/8f63946e-2412-409e-b755-cad584f5b770" alt="Image 3" width="350" align='right'></td>
+
 ### This project is a smart bin automated and intelligent IoT device integrated with a Machine Learning model and a React Native application which enables smart solid waste segregation and management in urban households. It has 3 compartments to separate the waste and can direct the garbage into its respective category automatically. In this problem statement we have taken solid waste and classified it into 3 categories namely:
 
 - Compostable (_Class 1_)
